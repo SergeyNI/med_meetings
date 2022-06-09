@@ -61,3 +61,5 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
 end
 gem "haml-rails", "~> 2.0"
+gem 'cancancan'
+gem 'activeadmin'

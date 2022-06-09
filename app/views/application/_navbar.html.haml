@@ -1,0 +1,21 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  .container-fluid
+    %a.pa-2.logo{:href=>"/"} IMDb
+    %button.navbar-toggler{type: "button", "data-bs-toggle"=>"collapse", "data-bs-target"=>"#navbarText","aria-expanded"=>"false", "aria-label"=>"Toggle navigation"}
+      %span.navbar-toggler-icon
+    -# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    -#   <span class="navbar-toggler-icon"></span>
+    -# </button>
+    .collapse.navbar-collapse#navbarText
+      %ul.navbar-nav.me-auto.mb-2.mb-lg-0.d-flex
+        -unless user_signed_in?
+          %li.nav-item= link_to "login", new_user_session_path, class: "nav-link"
+        -if user_signed_in?
+          %li.nav-item= link_to "Logout", destroy_user_session_path, class: "nav-link"
+      %ul.navbar-nav.mb-2.mb-lg-0.d-flex.ml-auto
+        -unless admin_signed_in?
+          %li.nav-item= link_to "admin login", new_admin_session_path, class: "nav-link"
+        -if admin_signed_in?
+          %li.nav-item= link_to "Movies", movies_path, class: "nav-link"
+          %li.nav-item= link_to "Categories", categories_path, class: "nav-link"
+          %li.nav-item= link_to "admin Logout", destroy_admin_session_path, class: "nav-link"
