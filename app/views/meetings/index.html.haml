@@ -1,0 +1,29 @@
+%h1 Listing meetings
+= link_to 'Opened', meetings_path(status: 1)
+= link_to 'Closed', meetings_path(status: 0)
+= link_to 'All', meetings_path()
+%table
+  %thead
+    %tr
+      %th User
+      %th Doctor
+      %th Time begin
+      %th Suggestion
+      %th
+      %th
+      %th
+
+  %tbody
+    - @meetings.each do |meeting|
+      %tr
+        %td= meeting.user.view
+        %td= meeting.doctor.view
+        %td= meeting.meeting_time
+        %td= meeting.doctor_recomendations
+        %td= link_to 'Show', meeting
+        %td= link_to 'Edit', edit_meeting_path(meeting)
+        %td= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Meeting',  search_index_path

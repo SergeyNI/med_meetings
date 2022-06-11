@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :meetings
+  get 'search/index'
   get 'home/index'
   devise_for :admins, ActiveAdmin::Devise.config 
   devise_for :doctors, controllers: {

@@ -1,0 +1,25 @@
+= form_for @meeting do |f|
+  - if @meeting.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@meeting.errors.count, "error")} prohibited this meeting from being saved:"
+      %ul
+        - @meeting.errors.full_messages.each do |message|
+          %li= message
+  %span= @doctor.first_name
+  %span= @doctor.second_name
+  = f.hidden_field :user_id, value: current_user.id
+  = f.hidden_field :doctor_id, value: @doctor.id 
+  -# .field
+  -#   = f.label :user
+  -#   = f.text_field :user
+  -# .field
+  -#   = f.label :doctor
+  -#   = f.text_field :doctor
+  .field
+    = f.label :meeting_time
+    = f.datetime_select :meeting_time
+  .field
+    = f.label :doctor_recomendations
+    = f.text_field :doctor_recomendations
+  .actions
+    = f.submit 'Save'

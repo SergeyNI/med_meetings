@@ -6,6 +6,11 @@
     %br/
     = f.email_field :email, autofocus: true, autocomplete: "email"
   .field
+    = f.label :phone_number
+    %br/
+    = f.text_field :phone_number
+  = f.hidden_field :specialty_id, value:  1
+  .field
     = f.label :password
     - if @minimum_password_length
       %em

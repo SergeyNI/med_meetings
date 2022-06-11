@@ -1,0 +1,6 @@
+%h1 
+  %span 
+    =doctor.first_name
+  %span 
+    =doctor.second_name
+  = link_to "new meeting", new_meeting_path(doctor_id: doctor.id),  class: "nav-link"

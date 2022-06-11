@@ -10,6 +10,18 @@
     %div
       Currently waiting confirmation for: #{resource.unconfirmed_email}
   .field
+    = f.label :phone_number
+    %br/
+    = f.text_field :phone_number
+  .field
+    = f.label :first_name
+    %br/
+    = f.text_field :first_name
+  .field
+    = f.label :second_name
+    %br/
+    = f.text_field :second_name
+  .field
     = f.label :password
     %i (leave blank if you don't want to change it)
     %br/

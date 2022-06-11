@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @meeting.user.view
+%p
+  %b Doctor:
+  = @meeting.doctor.view
+%p
+  %b Time begin:
+  = @meeting.meeting_time
+%p
+  %b doctor recomendations:
+  = @meeting.doctor_recomendations
+
+= link_to 'Edit', edit_meeting_path(@meeting)
+\|
+= link_to 'Back', meetings_path

@@ -5,8 +5,12 @@ class Doctor < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   belongs_to :specialty
-
+  has_many :meetings
   validates "first_name",  presence: true, on: :update
   validates "second_name", presence: true, on: :update
   validates "phone_number", presence: true
+  validates "specialty_id", presence: false
+  def view
+    "#{first_name} #{second_name}"
+  end
 end
