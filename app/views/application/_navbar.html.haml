@@ -16,6 +16,7 @@
           %li.nav-item= link_to "doctor Logout", destroy_doctor_session_path,method: :delete , class: "nav-link"
         -if admin_signed_in?
           %li.nav-item= link_to "admin Logout", destroy_admin_session_path, method: :delete, class: "nav-link"
+        %li.nav-item= link_to "Meetings", meetings_path , class: "nav-link"
       %ul.navbar-nav.mb-2.mb-lg-0.d-flex.ml-auto
         -if user_signed_in?
           %li.nav-item= link_to "user Profile", edit_user_registration_path, class: "nav-link"

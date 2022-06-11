@@ -5,21 +5,23 @@
       %ul
         - @meeting.errors.full_messages.each do |message|
           %li= message
-  %span= @doctor.first_name
-  %span= @doctor.second_name
-  = f.hidden_field :user_id, value: current_user.id
-  = f.hidden_field :doctor_id, value: @doctor.id 
-  -# .field
-  -#   = f.label :user
-  -#   = f.text_field :user
-  -# .field
-  -#   = f.label :doctor
-  -#   = f.text_field :doctor
-  .field
-    = f.label :meeting_time
-    = f.datetime_select :meeting_time
-  .field
+  -if doctor_signed_in?
+    %h3= @meeting.user.view
+    %h4=@meeting.meeting_time
+    = f.hidden_field :user_id, value: @meeting.user_id
+    = f.hidden_field :doctor_id, value: @meeting.doctor_id 
+    .field
     = f.label :doctor_recomendations
     = f.text_field :doctor_recomendations
+  -if user_signed_in?
+    %h3= @doctor.view
+    = f.hidden_field :user_id, value: current_user.id
+    = f.hidden_field :doctor_id, value: @doctor.id
+    .field
+    = f.label :meeting_time
+    = f.datetime_select :meeting_time
+
+  
+  
   .actions
     = f.submit 'Save'
