@@ -15,7 +15,7 @@
     = f.text_field :doctor_recomendations
   -if user_signed_in?
     %h3= @doctor.view
-    = f.hidden_field :user_id, value: current_user.id
+    -# = f.hidden_field :user_id, value: current_user.id
     = f.hidden_field :doctor_id, value: @doctor.id
     .field
     = f.label :meeting_time
