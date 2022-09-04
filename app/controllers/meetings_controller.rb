@@ -5,13 +5,12 @@ class MeetingsController < InheritedResources::Base
   # load_and_authorize_resource
 
   def new
-    authorize! :new, @meeting
     @meeting = Meeting.new
     # rescue_from CanCan::AccessDenied do |exception|
     #   respond_to {|format| format.html { redirect_to root_path, notice: exception.message } }
     # end
-    rescue CanCan::AccessDenied => exception
-      respond_to {|format| format.html { redirect_to root_path, notice: exception.message } }
+    # rescue CanCan::AccessDenied => exception
+    #   respond_to {|format| format.html { redirect_to root_path, notice: exception.message } }
   
   end
   

@@ -1,3 +1,16 @@
-%h1 Search#index
-%p Find me in app/views/search/index.html.haml
-= render partial: :doctor, collection: @doctors
+.offcanvas.offcanvas-start#offcanvasExample{tabindex:"-1", 'aria-labelledby':"offcanvasLabel"}
+  .offcanvas-header
+    %h5 filters
+    %button.btn-close.text-reset{'data-bs-dismiss':"offcanvasExample",'aria-label':"Close"}
+  .offcanvas-body
+    .btn-group
+      = render partial: :specialty, collection: Specialty.for_show
+    -# =select("specialty","id",Specialty.for_show.collect{|s| [s.name, s.id]})
+
+    -# .dropdown.mt-3
+    -#   .btn.btn-secondary.dropdown-toggle#dropdownSpecialtyButton{'data-bs-toggle':'dropdown'}
+.btn.btn-secondary{type: 'button','data-bs-toggle':"offcanvas", href: "#offcanvasExample"}
+  %i.bi.bi-filter-left
+  filter
+.mt-3
+  = render partial: :doctor, collection: @doctors

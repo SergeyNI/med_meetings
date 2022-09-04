@@ -1,4 +1,4 @@
-= form_for @meeting do |f|
+= form_for @meeting, html: { class: "row gy-2" } do |f|
   - if @meeting.errors.any?
     #error_explanation
       %h2= "#{pluralize(@meeting.errors.count, "error")} prohibited this meeting from being saved:"
@@ -14,14 +14,13 @@
     = f.label :doctor_recomendations
     = f.text_field :doctor_recomendations
   -if user_signed_in?
-    %h3= @doctor.view
+    %h3.mb-3= @doctor.view
     -# = f.hidden_field :user_id, value: current_user.id
     = f.hidden_field :doctor_id, value: @doctor.id
-    .field
-    = f.label :meeting_time
-    = f.datetime_select :meeting_time
-
-  
-  
-  .actions
-    = f.submit 'Save'
+    .col-2
+      = f.label :meeting_time,class: 'form-label'
+    .col
+      = f.datetime_select :meeting_time, class: 'dropdown-menu'
+    .row
+      .col.gy-2
+        = f.submit 'Save',class: "btn btn-primary"
