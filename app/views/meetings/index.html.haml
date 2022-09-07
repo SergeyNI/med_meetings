@@ -1,8 +1,9 @@
-%h1 Listing meetings
-= link_to 'Opened', meetings_path(status: 1)
-= link_to 'Closed', meetings_path(status: 0)
-= link_to 'All', meetings_path()
-%table
+%h1.py-2 Listing meetings
+
+= link_to 'Opened', meetings_path(status: 1),class: "btn #{button_class(1)}"
+= link_to 'Closed', meetings_path(status: 0),class: "btn #{button_class(0)}"
+= link_to 'All', meetings_path(),class: "btn #{button_class(nil)}"
+%table.table.table-hover
   %thead
     %tr
       %th User

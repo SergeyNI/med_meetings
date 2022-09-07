@@ -1,6 +1,6 @@
 = form_for @meeting, html: { class: "row gy-2" } do |f|
   - if @meeting.errors.any?
-    #error_explanation
+    .alert.alert-danger
       %h2= "#{pluralize(@meeting.errors.count, "error")} prohibited this meeting from being saved:"
       %ul
         - @meeting.errors.full_messages.each do |message|

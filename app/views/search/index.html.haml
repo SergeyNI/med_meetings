@@ -5,7 +5,7 @@
   .offcanvas-body
     .btn-group
       = render partial: :specialty, collection: Specialty.for_show
-    -# =select("specialty","id",Specialty.for_show.collect{|s| [s.name, s.id]})
+    =link_to "", search_index_path(), class: 'btn btn-close'
 
     -# .dropdown.mt-3
     -#   .btn.btn-secondary.dropdown-toggle#dropdownSpecialtyButton{'data-bs-toggle':'dropdown'}
@@ -14,3 +14,4 @@
   filter
 .mt-3
   = render partial: :doctor, collection: @doctors
+  
